@@ -9,6 +9,7 @@ import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import {transform} from 'ol/proj'
+import {toStringXY} from 'ol/coordinate';
 
 function MapContainer(props) {
 
@@ -27,8 +28,6 @@ function MapContainer(props) {
 
   // initialize map on first render - logic formerly put into componentDidMount
   useEffect( () => {
-
-    console.log('initialize useEffect')
 
     // create and add vector source layer
     const initalFeaturesLayer = new VectorLayer({
@@ -77,25 +76,23 @@ function MapContainer(props) {
   // update map if features prop changes - logic formerly put into componentDidUpdate
   useEffect( () => {
 
-    console.log('props.route useEffect', !!props.route)
-
-    if (props.route) { // may be null on first render
+    if (props.features.length) { // may be null on first render
 
       // set features to map
       featuresLayer.setSource(
         new VectorSource({
-          features: [ props.route.feature ] // make sure features is an array
+          features: props.features // make sure features is an array
         })
       )
 
-      // fit map to feature extent
+      // fit map to feature extent (with 100px of padding)
       map.getView().fit(featuresLayer.getSource().getExtent(), {
-        padding: [50,410,50,30]
+        padding: [100,100,100,100]
       })
 
     }
 
-  },[props.route])
+  },[props.features])
 
   // map click handler
   const handleMapClick = (event) => {
@@ -110,13 +107,18 @@ function MapContainer(props) {
     // set React state
     setSelectedCoord( transormedCoord )
     
-    console.log('clicked coordinate:', transormedCoord)
-
   }
 
   // render component
   return (      
-    <div ref={mapElement} className="map-container">
+    <div>
+      
+      <div ref={mapElement} className="map-container"></div>
+      
+      <div className="clicked-coord-label">
+        <p>{ (selectedCoord) ? toStringXY(selectedCoord, 5) : '' }</p>
+      </div>
+
     </div>
   ) 
 
