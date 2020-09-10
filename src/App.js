@@ -8,7 +8,7 @@ import GeoJSON from 'ol/format/GeoJSON'
 import Feature from 'ol/Feature';
 
 // components
-import MapContainer from './components/MapContainer'
+import MapWrapper from './components/MapWrapper'
 
 function App() {
   
@@ -47,8 +47,8 @@ function App() {
         <p>Click the map to reveal location coordinate via React State</p>
       </div>
       
-      <MapContainer features={features} />
-      
+      <MapWrapper features={features} />
+
     </div>
   )
 }

@@ -11,7 +11,7 @@ import XYZ from 'ol/source/XYZ'
 import {transform} from 'ol/proj'
 import {toStringXY} from 'ol/coordinate';
 
-function MapContainer(props) {
+function MapWrapper(props) {
 
   // set intial state
   const [ map, setMap ] = useState()
@@ -124,4 +124,4 @@ function MapContainer(props) {
 
 }
 
-export default MapContainer
+export default MapWrapper
