@@ -92,7 +92,7 @@ function MapWrapper(props) {
 
     }
 
-  },[props.features])
+  },[props.features, featuresLayer, map])
 
   // map click handler
   const handleMapClick = (event) => {

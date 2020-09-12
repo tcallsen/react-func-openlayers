@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react';
 
 // openlayers
 import GeoJSON from 'ol/format/GeoJSON'
-import Feature from 'ol/Feature';
 
 // components
 import MapWrapper from './components/MapWrapper'
