@@ -21,7 +21,7 @@ To run a development build and launch the development server, execute:
 
 `npm start`
 
-Once completed, the app should be avialable from http://localhost:3000/
+Once completed, the app should be available from http://localhost:3000/
 
 ## Development Environment
 
