@@ -11,12 +11,12 @@ import XYZ from 'ol/source/XYZ'
 import {transform} from 'ol/proj'
 import {toStringXY} from 'ol/coordinate';
 
-function MapWrapper(props) {
+// set initial state
+const [ map, setMap ] = useState()
+const [ featuresLayer, setFeaturesLayer ] = useState()
+const [ selectedCoord , setSelectedCoord ] = useState()
 
-  // set intial state
-  const [ map, setMap ] = useState()
-  const [ featuresLayer, setFeaturesLayer ] = useState()
-  const [ selectedCoord , setSelectedCoord ] = useState()
+function MapWrapper(props) {
 
   // pull refs
   const mapElement = useRef()
