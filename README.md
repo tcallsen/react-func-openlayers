@@ -1,4 +1,4 @@
-# Using OpenLayers 7 with React Functional Components and Hooks
+# Using OpenLayers 8 with React Functional Components and Hooks
 
 Here is a sample application that demonstrates how to integrate OpenLayers with React Functional Components including:
 
@@ -25,7 +25,7 @@ Once completed, the app should be avialable from http://localhost:3000/
 
 ## Development Environment
 
-This application was developed using create-react-app, with Node version v16.15.1
+This application was developed using create-react-app, with Node version v18.18.2
 
 ## Supplemental Blog Post
 
