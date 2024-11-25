@@ -26,7 +26,7 @@ function MapWrapper(props) {
   const mapRef = useRef()
   mapRef.current = map
 
-  // initialize map on first render - logic formerly put into componentDidMount
+  // initialize map on first render - logic formerly put into componentDidMount()
   useEffect( () => {
 
     // create and add vector source layer
@@ -71,9 +71,15 @@ function MapWrapper(props) {
     setMap(initialMap)
     setFeaturesLayer(initalFeaturesLayer)
 
+    // optional - safely reset map on unmount to prevent flickering issues - logic formerly put into componentWillUnmount()
+    return () => {
+      initialMap.setTarget(null)
+      setMap(null)
+    }
+
   },[])
 
-  // update map if features prop changes - logic formerly put into componentDidUpdate
+  // update map if features prop changes - logic formerly put into componentDidUpdate()
   useEffect( () => {
 
     if (props.features.length) { // may be null on first render
